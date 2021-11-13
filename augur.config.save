@@ -1,0 +1,372 @@
+{
+    "version": 1,
+    "Augur": {
+        "developer": 1
+    },
+    "Database": {
+        "name": "augur",
+        "host": "localhost",
+        "key": "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",
+        "password": "augur123",
+        "port": 5432,
+        "user": "augur",
+        "gitlab_api_key": "glpat-FTWeWRkT-eNgByiV4STq",
+        "database": "augur"
+    },
+    "Housekeeper": {
+        "update_redirects": {
+            "switch": 0,
+            "repo_group_id": 0
+        },
+        "jobs": [
+            {
+                "delay": 150000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "ossf_scorecard",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 150000,
+                "given": [
+                    "github_url"
+                ],
+                "model": "contributor_breadth",
+                "repo_group_id": 0
+            },
+            {
+                "all_focused": 1,
+                "delay": 150000,
+                "given": [
+                    "github_url"
+                ],
+                "model": "issues",
+                "repo_group_id": 0
+            },
+            {
+                "all_focused": 1,
+                "delay": 150000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "merge_requests",
+                "repo_group_id": 0
+            },
+            {
+                "all_focused": 1,
+                "delay": 150000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "merge_request_commits",
+                "repo_group_id": 0
+            },
+            {
+                "all_focused": 1,
+                "delay": 150000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "merge_request_files",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 150000,
+                "given": [
+                    "github_url"
+                ],
+                "model": "pull_request_commits",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 150000,
+                "given": [
+                    "github_url"
+                ],
+                "model": "repo_info",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 86400,
+                "given": [
+                    "repo_group"
+                ],
+                "model": "commits",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 1000000,
+                "given": [
+                    "github_url"
+                ],
+                "model": "pull_requests",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 1000000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "contributors",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 1000000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "insights",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 1000000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "badges",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 1000000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "value",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 100000,
+                "given": [
+                    "github_url"
+                ],
+                "model": "pull_request_files",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 100000,
+                "given": [
+                    "github_url"
+                ],
+                "model": "releases",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 100000,
+                "given": [
+                    "github_url"
+                ],
+                "model": "message_analysis",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 100000,
+                "given": [
+                    "github_url"
+                ],
+                "model": "pull_request_analysis",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 10000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "discourse_analysis",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 10000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "clustering",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 10000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "repo_library_experience",
+                "repo_group_id": 0
+            },
+            {
+                "all_focused": 1,
+                "delay": 150000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "gitlab_issues",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 150000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "deps",
+                "repo_group_id": 0
+            },
+            {
+                "delay": 150000,
+                "given": [
+                    "git_url"
+                ],
+                "model": "deps_libyear",
+                "repo_group_id": 0
+            }
+        ]
+    },
+    "Workers": {
+        "contributor_breadth_worker": {
+            "port": 48242,
+            "switch": 1,
+            "workers": 1
+        },
+        "facade_worker": {
+            "port": 48600,
+            "repo_directory": "/home/ubuntu/augurtest01/",
+            "switch": 1,
+            "workers": 1
+        },
+        "github_worker": {
+            "port": 57606,
+            "switch": 1,
+            "workers": 1
+        },
+        "insight_worker": {
+            "port": 49491,
+            "metrics": {
+                "issues-new": "issues",
+                "code-changes": "commit_count",
+                "code-changes-lines": "added",
+                "reviews": "pull_requests",
+                "contributors-new": "new_contributors"
+            },
+            "confidence_interval": 95,
+            "contamination": 0.1,
+            "switch": 1,
+            "workers": 1,
+            "training_days": 1000,
+            "anomaly_days": 14
+        },
+        "linux_badge_worker": {
+            "port": 47398,
+            "switch": 1,
+            "workers": 1
+        },
+        "metric_status_worker": {
+            "port": 49506,
+            "switch": 1,
+            "workers": 1
+        },
+        "pull_request_worker": {
+            "port": 50100,
+            "switch": 1,
+            "workers": 1
+        },
+        "repo_info_worker": {
+            "port": 50927,
+            "switch": 1,
+            "workers": 1
+        },
+        "value_worker": {
+            "port": 51339,
+            "scc_bin": "scc",
+            "switch": 1,
+            "workers": 1
+        },
+        "contributor_worker": {
+            "port": 52321,
+            "switch": 1,
+            "workers": 1
+        },
+        "gitlab_issues_worker": {
+            "port": 47668,
+            "switch": 1,
+            "workers": 1
+        },
+        "release_worker": {
+            "port": 56065,
+            "switch": 1,
+            "workers": 1
+        },
+        "gitlab_merge_request_worker": {
+            "port": 56809,
+            "switch": 1,
+            "workers": 1
+        },
+        "message_insights_worker": {
+            "port": 55086,
+            "switch": 1,
+            "workers": 1,
+            "insight_days": 30,
+            "models_dir": "message_models"
+        },
+        "pull_request_analysis_worker": {
+            "port": 54224,
+            "switch": 1,
+            "workers": 1,
+            "insight_days": 30
+        },
+        "discourse_analysis_worker": {
+            "port": 54653,
+            "switch": 1,
+            "workers": 1
+        },
+        "clustering_worker": {
+            "port": 57075,
+            "switch": 1,
+            "workers": 1,
+            "max_df": 0.9,
+            "max_features": 1000,
+            "min_df": 0.1,
+            "num_clusters": 4
+        },
+        "deps_worker": {
+            "port": 58343,
+            "switch": 1,
+            "workers": 1
+        },
+        "deps_libyear_worker": {
+            "port": 58501,
+            "switch": 1,
+            "workers": 1
+        }
+    },
+    "Facade": {
+        "check_updates": 1,
+        "clone_repos": 1,
+        "create_xlsx_summary_files": 1,
+        "delete_marked_repos": 0,
+        "fix_affiliations": 1,
+        "force_analysis": 1,
+        "force_invalidate_caches": 1,
+        "force_updates": 1,
+        "limited_run": 0,
+        "multithreaded": 0,
+        "nuke_stored_affiliations": 0,
+        "pull_repos": 1,
+        "rebuild_caches": 1,
+        "run_analysis": 1
+    },
+    "Server": {
+        "cache_expire": "3600",
+        "host": "ec2-18-218-53-238.us-east-2.compute.amazonaws.com",
+        "port": 5000,
+        "workers": 12,
+        "timeout": 60000
+    },
+    "Frontend": {
+        "host": "ec2-18-218-53-238.us-east-2.compute.amazonaws.com",
+        "port": 5004
+    },
+    "Logging": {
+        "logs_directory": "logs/",
+        "log_level": "INFO",
+        "verbose": 0,
+        "quiet": 0,
+        "debug": 0
+    }
+}
