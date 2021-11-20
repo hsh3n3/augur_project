@@ -22,9 +22,9 @@ def deps1(self):
     :param repo_group_id: The repository's group id
     :return: DataFrame of persons/period
     """
-	depsSQL = s.sql.text("""
+	deps1SQL = s.sql.text("""
 			SELECT dep_name FROM repo_dependencies
 		""")
-	results = pd.read_sql(depsSQL, self.database, params={'repo_id'})
+	results = pd.read_sql(deps1SQL, self.database)
 
 	return results
