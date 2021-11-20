@@ -44,4 +44,4 @@ def deps1(self):
 
 	# return results
 
-	print("Hello World")
+	return "Hello World"
