@@ -9,7 +9,7 @@ import pandas as pd
 from augur.util import register_metric
 
 @register_metric()
-def deps1(self, repo_group_id, repo_id=None, period='day', begin_date=None, end_date=None):
+def test(self, repo_group_id, repo_id=None, period='day', begin_date=None, end_date=None):
     """
     Returns a timeseries of all the contributions to a project.
 
