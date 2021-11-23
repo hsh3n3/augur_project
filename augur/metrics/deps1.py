@@ -11,7 +11,7 @@ from flask import request, Response, Flask
 @register_metric()
 def deps1(self, repo_group_id, repo_id=None, period='day', begin_date=None, end_date=None):
     """
-    Returns all up to date dependencies for all repos or specific repos
+    Returns all dependencies used in the most recent data collection for all repos or specific repos
 
     DataFrame has these columns:
     repo_id
