@@ -17,7 +17,7 @@ def deps3(self, repo_id):
     """
 
     contributorsSQL = s.sql.text("""
-        SELECT dep_name FROM repo_dependencies WHERE repo_id=:repo_id;
+        SELECT dep_name FROM repo_dependencies;
     """)
 
     results = pd.read_sql(contributorsSQL, self.database, params={'repo_id': repo_id})
