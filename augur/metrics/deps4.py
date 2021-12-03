@@ -9,8 +9,13 @@ from augur.util import register_metric
 from flask import request, Response, Flask
 
 @register_metric()
-def deps3(self, repo_group_id):
-  
+def deps4(self, repo_group_id):
+    """
+    Returns the name and count of every repo dependency ordered in descending order by count
+    DataFrame has these columns:
+	dep_name
+    dep_count
+    """
 
     contributorsSQL = s.sql.text("""
         SELECT dep_name, dep_count FROM repo_dependencies ORDER BY dep_count DESC;
