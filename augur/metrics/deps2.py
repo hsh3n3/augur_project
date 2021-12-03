@@ -9,7 +9,7 @@ from augur.util import register_metric
 from flask import request, Response, Flask
 
 @register_metric()
-def deps2(self, repo_group_id = None):
+def deps2(self, repo_id):
 
     contributorsSQL = s.sql.text("""
         SELECT dep_name FROM repo_dependencies
