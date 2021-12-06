@@ -9,21 +9,16 @@ from augur.util import register_metric
 from flask import request, Response, Flask
 
 @register_metric()
-def deps1(self):
+def deps2(self, repo_id):
     """
-    Returns all up to date dependencies for all repos or specific repos
-
+    Returns the name of every dependency of all loaded repos
     DataFrame has these columns:
-    repo_id
-	data_source
 	dep_name
-	dep_language
-	date
-
-    :param repo_id: The repository's id
-    :param repo_group_id: The repository's group id
-    :return: DataFrame of persons/period
     """
 
-    results = "Hello World"
+    contributorsSQL = s.sql.text("""
+        SELECT dep_name FROM repo_dependencies WHERE repo_id = :repo_id
+    """)
+
+    results = pd.read_sql(contributorsSQL, self.database, params={'repo_id': repo_id})
     return results
